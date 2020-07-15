@@ -1,0 +1,49 @@
+\documentclass[
+	a5paper,
+	pdftex,
+	headsepline,
+	footsepline=false,
+	10pt,
+	twoside,
+	DIV=16,
+	BCOR=3mm,
+	footinclude=false,
+	parskip=half
+	]{scrbook}
+
+% all other \usepackages and \renewcommands are there:
+\include{includes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page and TOC
+
+\title{\includegraphics{logo}}
+\subtitle{Quick Reference Guide}
+\author{}
+\date{Version 1.0.0}
+\publishers{\LaTeX{}  by Anna Christina Naß}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let's get started
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{introduction}
+
+\include{terminal}
+
+\include{setup}
+
+\include{modem}
+
+\include{appendix}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The End.
+

@@ -1,0 +1,75 @@
+\chapter{The Terminal}
+
+The main function of the VT132 is the terminal. It functions as a VT100 terminal but is also capable of
+ANSI color sequences and can also display DOS \texttt{ANSI.SYS} compatible sequences.\\
+Alternative personalities like ADM-3A or VT-52 are also available.
+
+\section{Keys in Terminal Mode}
+
+\begin{tabular}{p{6em} | p{0.75\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+\texttt{Alt-SysRq}	& Open Setup Screen \\
+\texttt{Alt-Esc}	& Open Quick Settings Menu \\
+\texttt{Ctrl-J}		& Send \texttt{LINEFEED} key \\
+\texttt{ScrollLock}	& \texttt{NO SCROLL} function, like Ctrl-S / Ctrl-Q \\
+\hline
+\end{tabular}
+
+\section{The Quick Settings Menu}
+\label{quicksettings}
+
+Use these keys to navigate inside this menu:
+
+\begin{tabular}{p{6em} | p{0.75\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+\texttt{Esc}    & Close Quick Settings Menu (at top level)\\
+\hline
+\texttt{Space}  & \multirow{3}{*}{Make selection, enter menu} \\
+\texttt{Enter}  & \\
+\texttt{$\rightarrow$}  & \\
+\hline
+\texttt{Esc}    & \multirow{3}{*}{Go back one level} \\
+\texttt{Backspace} & \\
+\texttt{$\leftarrow$}   & \\
+\hline
+\end{tabular}
+
+\begin{itemize}
+ \item Selecting an action (ie. not a menu or checkbox/radio button) will execute this action and close the menu.
+ \item You can press the \underline{underlined} key to select an option.
+\end{itemize}
+
+The following menu options are available:
+
+\begin{itemize}
+ \item Actions:
+ \begin{itemize}
+  \item Clear display
+  \item Soft reset
+  \item Reset terminal: The same as \texttt{0} in Set-Up menus
+  \item Reboot: Reboots the microcontroller of the VT132
+  \item Clean NVR: ``factory reset'' the VT132 by deleting all terminal and modem settings
+ \end{itemize}
+ \item Terminal Type:
+ \begin{itemize}
+  \item Emulation Mode: change personality
+  \item 7-bit NRCS characters: enable/disable NRCS mode
+ \end{itemize}
+ \item ASCII emulation:
+ \begin{itemize}
+  \item Select a pre-defined emulation ``profile''
+  \item White/Green/Amber/Blue screen all sets: DEC Codepage, Bold = Bright + Thick, ANSI color palette (except Amber: VGA palette), 80x24 screen
+  \item Ansi.sys sets: Codepage 437, Home on Clear, VGA color palette, 80x25 screen
+ \end{itemize}
+ \item Modem: Enable modem locally
+ \begin{itemize}
+  \item When enabling this setting, the modem part cannot be accessed via the serial connection
+  \item Instead, when switching from ONLINE to LOCAL mode, you can talk directly to the modem (bypassing the connected computer)
+ \end{itemize}
+ \item On-Line: switch between ONLINE and LOCAL mode (for using the modem, see above)
+\end{itemize}
+

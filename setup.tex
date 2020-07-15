@@ -1,0 +1,133 @@
+\chapter{Set-Up Mode}
+
+\section{Keys in Set-Up Mode}
+
+\begin{tabular}{p{6em} | p{0.75\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+\texttt{F1}			& Show/hide help \\
+\texttt{5}          & Advance to the next screen \\
+\texttt{Shift-T}	& Reset tab stops to default \\
+\texttt{Tab}		& Move cursor to the next tab stop \\
+\texttt{Enter}		& Move cursor to the beginning of the line \\
+\texttt{Shift-C}	& On Set-Up B: reset NVRAM to factory defaults on next boot \\
+\hline
+\end{tabular}
+
+\section{The Set-Up Screens}
+
+The Set-Up screens imitate the same functions on a real DEC VT100 terminal.
+
+Use \texttt{F1} to toggle the help display which shows all keys. \\
+Use \texttt{5} to advance to the next screen.
+
+\subsection{Set-Up A}
+
+This page shows the tab stops and offers to toggle \textbf{80/132 columns} text display and also switching between
+\textbf{online} and \textbf{local mode}.
+
+In \textbf{online mode}, the terminal is connected to the computer via the serial port.\\
+In \textbf{local mode}, the terminal can be used to connect directly to the modem using the \textit{Quick Settings menu} (see \vref{quicksettings}).
+
+Use \texttt{Shift-S} (capital \texttt{S}) to save and \texttt{Shift-R} (capital \texttt{R}) to recall the settings from NVS.
+
+\subsection{Set-Up B}
+
+On this page, various configuration 'bits' can be set. Use the cursor to navigate above the bit and press \texttt{6} to toggle it. Use \texttt{Tab} and \texttt{Enter }to move quicker.
+
+These bits are available:
+
+\begin{tabular}{p{8em} | p{0.68\textwidth}}
+\hline
+\textbf{Bit} & \textbf{Function} \\
+\hline
+Scroll      & Use smooth scrolling \\
+Auto Repeat & Press longer on a key and the input will be repeated \\
+Screen Inv. & Invert the screen colors (to eg. black on white) \\
+Cursor      & Change cursor shape (block / line) \\
+\hline
+Margin Bell & Ring the bell when cursor is on right margin \\
+Keyclick    & Every keypress will make a clicking sound \\
+Ansi/VT52   & \dots \\
+Auto Xon/off    & Use Xon/Xoff as flow control \\
+\hline
+US/UK       & Switch between US and UK keyboard layout \\
+Wrap Around & \dots \\
+New Line    & \dots \\
+Interlace   & Enable a 'scanline effect' \\
+\hline
+Parity Odd/Even & Not used \\
+Parity          & Not used \\
+Bits 7/8        & Not used \\
+Backspace DEL/BS & Send DEL or BS when pressing \texttt{Backspace} \\
+\hline
+Bold is Bright  & If bold text is displayed bright \\
+Bold is Thick   & If bold text is displayed \textbf{thick} \\
+Home on Erase   & Should the cursor go to upper left on clear screen \\
+NumLock on Reset & Should NumLock be enabled on bootup \\
+\hline
+\end{tabular}
+
+\newpage
+\textbf{Please note:}
+\begin{itemize}
+ \item Use keys \texttt{7} and \texttt{8} to set the baudrate used on the terminal serial port, it is shown in the lower right.
+ \item The bits for \textbf{bold} text are applied to text with the attribute \texttt{ESC [1m}.
+ \item \textit{Home on Erase} makes the cursor go home (\texttt{ESC [H}) on a clear screen request (\texttt{ESC [2J}), just as MS-DOS \texttt{ANSI.SYS} works.
+\end{itemize}
+
+\subsection{Set-Up C}
+
+This screen is a VT132 enhancement over the VT100 functionality. \\
+You can also see the version number and the memory utilization (with help disabled).
+
+You can change the following settings:
+
+\begin{tabular}{ c | p{0.88\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+2   & Select codepage (DEC or Codepage 437) \\
+3   & Select lines per screen (24, 25 or 30) \\
+6   & Toggle ANSI or VGA color palette \\
+7   & Set default foreground color \\
+8   & Set default background color \\
+\hline
+\end{tabular}
+
+\textbf{Please note:}
+\begin{itemize}
+ \item Codepage 437 is not available in 132 column mode.
+ \item When switching to 30 line mode, the modem part of VT132 is not available due to memory constraints.
+ \item To set the colors, move the cursor above the desired color on the bottom left of the screen.
+ \item The current default foreground/background color is displayed by the word \texttt{Default} on the last line of the screen.
+ \item The current screen size is displayed on the last line of the screen.
+\end{itemize}
+
+\subsection{Set-Up D}
+
+This screen is a VT132 enhancement over the VT100 functionality.
+
+\begin{tabular}{ c | p{0.85\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+6   & Set the keyboard layout \\
+7   & Toggle MCS/NRCS \\
+\hline
+\texttt{$\uparrow$}     & \multirow{2}{*}{Change Personality} \\
+\texttt{$\downarrow$}   & \\
+\hline
+\end{tabular}
+
+\textbf{Please note:}
+\begin{itemize}
+ \item To change the keyboard layout, move the cursor above the desired label and press \texttt{6}.
+ \item When enabling NRCS, certain characters in the lower 127 characters are replaced with country-specific characters according to the
+       selected keyboard layout.
+ \item The current keyboard layout and personality is shown in the last line of the screen.
+ \item Selecting \textit{WordStar/VT100} will enable WordStar cursor movement sequences for the cursor keys instead of standard ANSI
+       cursor sequences \textit{(ANSI/VT100)}.
+\end{itemize}
+

@@ -1,0 +1,86 @@
+\appendix
+
+\chapter{Hardware}
+
+\section{Installation}
+
+To install the VT132 in a RC2014 or a compatible system, place it in a standard or extended bus socket.
+
+If your backplane does not offer an extended bus, the modem cannot be used via bus pins, instead the modem FTDI header has to be used.
+The extended bus pins are not used for other purposes.
+
+\textbf{On a new VT132, the NVR (Non-volatile RAM) is not initialized.}
+
+At power-on or reset, following the \textbf{Wait} message, a new VT132 will display \textbf{Error} along with a series of bells.
+This is expected because the NVR has not been initialized.
+Once you write settings to the NVR, this error should not persist.
+
+\section{Jumper settings and headers}
+
+The board features the following jumpers:
+
+\begin{tabular}{p{7em} | p{0.71\textwidth}}
+\hline
+\textbf{Jumper} & \textbf{Function} \\
+\hline
+JP1 RxA & \multirow{2}{*}{Connect terminal to port A on bus pins} \\
+JP2 TxA \\
+\hline
+JP3 RxB & \multirow{2}{*}{Connect modem to port B on ext. bus pins} \\
+JP4 RxB \\
+\hline
+JP5 Pwr FTDI & Connect Power to FTDI +5V pin \\
+\hline
+JP6 Pwr Modem & Connect Power to modem FTDI +5V pin \\
+\hline
+\end{tabular}
+
+Enabling JP1 and JP2 is highly advised, as the VT100 terminal serial connection is not available on a FTDI header.
+
+If you want to provide power to, or take power from either of the 6 pin headers then JP5 and JP6 will provide power
+or isolate the \texttt{Vcc} pin in the \texttt{FTDI Program} and \texttt{Modem Port B} 6-pin headers respectively.
+
+\textbf{Warning:} You should normally only connect one power source to the system at a time.
+
+\begin{tabular}{ c | p{0.38\textwidth} || c | p{0.38\textwidth}}
+\hline
+\multicolumn{2}{ l || }{FTDI Program} & \multicolumn{2}{ l }{Modem Port B} \\
+\hline
+\textbf{Pin} & \textbf{Function} & \textbf{Pin} & \textbf{Function} \\
+\hline
+1 & GND             & 1 & GND \\
+2 & not connected   & 2 & CTS \\
+3 & Vcc (+5V)       & 3 & Vcc (+5V) \\
+4 & Tx              & 4 & Tx \\
+5 & Rx              & 5 & Rx \\
+6 & not connected   & 6 & RTS \\
+\hline
+\end{tabular}
+
+If your RC2014 serial module uses the RTS/CTS pins, you can disable JP3+4 and use jumper wires to connect the \textbf{Modem Port B} of the VT132 to your serial module,
+as no bus pins are assigned to RTS/CTS.
+
+The \textbf{FTDI Program} header outputs debug messages from the ESP32 microcontroller. You can connect another terminal (or a PC) to watch the debug output.
+The output uses 115.200 baud, 8 data bits, no parity, 1 stop bit (8-N-1).
+
+It is also possible to flash the ESP32 via this header. To enable the \textit{programming mode}, press and hold \textbf{Reset}, press and hold \textbf{Prog}, release \textbf{Reset}
+and release \textbf{Reset}. Another firmware can now be uploaded, eg. via \texttt{esptool}.
+
+\newpage
+\section{Buttons}
+
+The VT132 module offers two buttons:
+
+\begin{itemize}
+ \item Reset
+ \item Prog
+\end{itemize}
+
+The hardware \textbf{Reset} button on the PCB reboots the ESP32 (EN line reset). This will cause both the VT100 terminal and the modem to reset.
+Any unsaved settings (terminal and/or modem settings) will be lost.
+
+\textit{Note:} The computer connected to the VT132 will not be reset, so after the reset, you will be in the same program as before.
+
+The hardware \textbf{Prog} button is used to switch the baud rate of the modem. After each press of this button, the modem outputs its new
+baud rate to the serial port - so you can press this button repeatedly until you can read your baud rate.
+
