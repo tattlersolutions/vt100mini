@@ -9,7 +9,7 @@ A compiled version is available as ```vt132.pdf```.
 
 To edit the document in the LaTeX editor Kile, a kile project file (```vt132.kilepr```) is provided.
 
-To compile the file, just run ```pdflatex vt132.tex``` (2 times to get the references right) and you get the ```.pdf``` file.
+To compile the file, just run ```xelatex vt132.tex``` (2 times to get the references right) and you get the ```.pdf``` file (or call ```make.sh```).
 
 The script ```clean.sh``` can be used to remove all intermediate files.
 
