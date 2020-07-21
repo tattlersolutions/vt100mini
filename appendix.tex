@@ -6,7 +6,7 @@
 
 To install the VT132 in an RC2014 or a compatible system, place it in a standard or extended bus socket.
 
-If your backplane does not offer an extended bus, the modem cannot be used via bus pins, instead the modem FTDI header has to be used.
+If your backplane does not offer an extended bus, the modem cannot be used via bus pins, instead the modem 6 pin header has to be used.
 The extended bus pins are not used for other purposes.
 
 \textbf{On a new VT132, the NVR (Non-volatile RAM) is not initialized.}
@@ -32,18 +32,18 @@ JP4 RxB \\
 \hline
 JP5 Pwr FTDI & Connect Power to FTDI +5V pin \\
 \hline
-JP6 Pwr Modem & Connect Power to modem FTDI +5V pin \\
+JP6 Pwr Modem & Connect Power to modem header +5V pin \\
 \hline
 \end{tabular}
 
-Enabling JP1 and JP2 is highly advised, as the VT100 terminal serial connection is not available on a FTDI header.
+Enabling JP1 and JP2 is highly advised, as the VT100 terminal serial connection is not available on a 6 pin header.
 
 If you want to provide power to, or take power from either of the 6 pin headers then JP5 and JP6 will provide power
-or isolate the \texttt{Vcc} pin in the \texttt{FTDI Program} and \texttt{Modem Port B} 6-pin headers respectively.
+or isolate the \texttt{Vcc} pin in the \texttt{FTDI Program} and \texttt{Modem Port B} 6 pin headers respectively.
 
 \textbf{Warning:} You should normally only connect one power source to the system at a time.
 
-\begin{tabular}{ c | p{0.38\textwidth} || c | p{0.38\textwidth}}
+\begin{tabular}{ c | p{0.38\textwidth} || c | p{0.37\textwidth}}
 \hline
 \multicolumn{2}{ l || }{FTDI Program} & \multicolumn{2}{ l }{Modem Port B} \\
 \hline
@@ -62,7 +62,7 @@ If your RC2014 serial module uses the RTS/CTS pins, you can disable JP3+4 and us
 as no bus pins are assigned to RTS/CTS.
 
 The \textbf{FTDI Program} header outputs debug messages from the ESP32 microcontroller. You can connect another terminal (or a PC) to watch the debug output.
-The output uses 115.200 baud, 8 data bits, no parity, 1 stop bit (8-N-1).
+The output uses 115200 baud, 8 data bits, no parity, 1 stop bit (8-N-1).
 
 It is also possible to flash the ESP32 via this header. To enable the \textit{programming mode}, press and hold \textbf{Reset}, press and hold \textbf{Prog}, release \textbf{Reset}
 and release \textbf{Reset}. Another firmware can now be uploaded, eg. via \texttt{esptool}.
@@ -72,7 +72,7 @@ and release \textbf{Reset}. Another firmware can now be uploaded, eg. via \textt
 
 The VT132 module offers two buttons:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item Reset
  \item Prog
 \end{itemize}

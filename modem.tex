@@ -5,7 +5,7 @@
 The VT132 modem part is designed to provide a modified Hayes \texttt{AT} compatible command set for connecting over WiFi via TCP/IP
 sockets with an optional Telnet protocol layer.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
 	\item The original \texttt{AT} command set was strictly in upper case. This is because the bit sequence of the ASCII values for \texttt{A} and \texttt{T} have
 		a specific property that enables autobaud detection of the connection to the data terminal equipment (DTE).
 	\item \textbf{The modem only responds to \texttt{AT} commands in upper case.}
@@ -26,7 +26,7 @@ baud rate to the serial port -- so you can press this button repeatedly until yo
 
 \subsection{Serial Port}
 
-To communicate with the VT132 modem, you can use either the pins of the RC2014 extended bus (Rx2, Tx2) or the FTDI connector \textit{Modem Port B}.
+To communicate with the VT132 modem, you can use either the pins of the RC2014 extended bus (Rx2, Tx2) or the 6 pin header labelled \textit{Modem Port B}.
 
 See section \vref{jumperheaders} \textit{(Jumper settings and headers)} for details.
 
@@ -186,7 +186,7 @@ The following table shows the responses to the \textbf{Query WiFi status} comman
 
 The VT132 supports the following Telnet options:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
 	\item SGA (Suppress Go Ahead)
 	\item ECHO
 	\item BIN (Binary Transmission)
@@ -223,11 +223,11 @@ When connecting to \texttt{telnetd} on MacOS I use \texttt{vt100+} from the \tex
 
 \subsection{Enabling Telnet Protocol}
 
-Telnet protocol is \textbf{not} enabled by default.
+Telnet protocol is \textbf{not} enabled by default. To enable it, set the S Register S15 to 1 manually:
 
-\begin{itemize}
-	\item To enable the Telnet protocol you must manually set S Register S15 to 1 with \texttt{ATS15=1}
-	\item To disable the Telnet protocol you must manually set S Register S15 to 0 with \texttt{ATS15=0}
+\begin{itemize}[leftmargin=1em]
+	\item Enable Telnet using: \texttt{ATS15=1}
+	\item Disable Telnet using: \texttt{ATS15=0}
 \end{itemize}
 
 The Telnet protocol is applied to both \textbf{outgoing} connections 'Dialed' with ATD and \textbf{incoming} connections 'Answered' with \texttt{ATA} or Auto-answer.
@@ -239,7 +239,7 @@ The Telnet protocol is applied to both \textbf{outgoing} connections 'Dialed' wi
 
 Listening for incoming TCP/IP socket connections is \textbf{not enabled} by default.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
 	\item To \textbf{enable} listening for incoming TCP/IP socket connections you must manually enter \texttt{AT\&A} to \textit{Enable Answer Mode}.
 	\item Answer Mode will remain enabled, and can only disabled by an \texttt{ATZ} (Soft Reset), hardware reset or power-cycle.
 	\item Incoming TCP/IP socket connections will cause the modem to respond with \texttt{RING}, repeated every three (3) seconds.

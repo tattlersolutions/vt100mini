@@ -8,10 +8,12 @@
 \hline
 \LKeyF{1}		& Show/hide help \\
 \LKey{5}		& Advance to the next screen \\
-\LKeyShiftX{T}	& Reset tab stops to default \\
 \LKeyTab		& Move cursor to the next tab stop \\
 \LKeyEnter		& Move cursor to the beginning of the line \\
 \LKeyShiftX{C}	& On Set-Up B: reset NVRAM to factory defaults on next boot \\
+\hline
+\LKeyShiftX{S}	& Save the settings to NVS \\
+\LKeyShiftX{R}	& Recall settigns from NVS \\
 \hline
 \end{tabular}
 
@@ -19,19 +21,32 @@
 
 The Set-Up screens imitate the same functions on a real DEC VT100 terminal.
 
-Use \LKeyF{1} to toggle the help display which shows all keys. \\
-Use \LKey{5} to advance to the next screen.
-
+\newpage
 \subsection{Set-Up A}
 
-This page shows the tab stops and offers to toggle \textbf{80/132 columns} text display and also switching between
-\textbf{online} and \textbf{local mode}.
+This page shows the tab stops at the bottom of the screen.
 
-In \textbf{online mode}, the terminal is connected to the computer via the serial port.\\
-In \textbf{local mode}, the terminal can be used to connect directly to the modem using the \textit{Quick Settings menu} (see \vref{quicksettings}).
+\begin{tabular}{p{6em} | p{0.75\textwidth}}
+\hline
+\textbf{Key} & \textbf{Function} \\
+\hline
+\LKeyShiftX{T}	& Reset all tab stop to default \\
+\LKey{2}		& Set / clear tab stop at cursor position \\
+\LKey{3}		& Clear all tab stops \\
+\LKey{4}		& Toggle online / local mode \\
+\LKey{9}		& Toggle 80 / 132 columns per line \\
+\hline
+\end{tabular}
+\vspace{1em}
 
-Use \LKeyShiftX{S} (capital \texttt{S}) to save and \LKeyShiftX{R} (capital \texttt{R}) to recall the settings from NVS.
+\begin{itemize}[leftmargin=1em]
+ \item In \textbf{online mode}, the terminal is connected to the computer via the serial port.\\
+ \item In \textbf{local mode}, the terminal can be used to connect directly to the modem using the \textit{Quick Settings menu} (see \vref{quicksettings}).
+\end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \subsection{Set-Up B}
 
 On this page, various configuration \textit{bits} can be set. Use the cursor to navigate above the bit and press \LKey{6} to toggle it. Use \LKeyTab{} and \LKeyEnter{} to move quicker.
@@ -49,13 +64,13 @@ Cursor			& Change cursor shape (block / line) \\
 \hline
 Margin Bell		& Ring the bell when cursor is on right margin \\
 Keyclick		& Every keypress will make a clicking sound \\
-Ansi/VT52		& \dots \\
+Ansi/VT52		& If disabled, VT52 personality is used \\
 Auto Xon/off	& Use Xon/Xoff as flow control \\
 \hline
 US/UK			& Switch between US and UK keyboard layout \\
-Wrap Around		& \dots \\
-New Line		& \dots \\
-Interlace		& Enable a 'scanline effect' \\
+Wrap Around		& Characters will flow to the next line at the end of a line \\
+New Line		& Pressing \LKeyEnter{} sends \texttt{CR + LF} instead of only \texttt{CR} \\
+Interlace		& Enable a \textit{scanline effect} \\
 \hline
 Parity Odd/Even	& Not used \\
 Parity			& Not used \\
@@ -64,19 +79,26 @@ Backspace DEL/BS	& Send DEL or BS when pressing \texttt{Backspace} \\
 \hline
 Bold is Bright	& If bold text is displayed bright \\
 Bold is Thick	& If bold text is displayed \textbf{thick} \\
-Home on Erase	& Should the cursor go to upper left on clear screen \\
-NumLock on Reset	& Should NumLock be enabled on bootup \\
+Set ANSI.SYS Compliance	& The terminal will be more compatible to DOS \texttt{ANSI.SYS} \\
+Set NumLock on Reset	& Enable NumLock on bootup \\
 \hline
 \end{tabular}
 
 \newpage
 \textbf{Please note:}
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item Use keys \LKey{7} and \LKey{8} to set the baudrate used on the terminal serial port, it is shown in the lower right.
+ \item US/UK switch will replace \# with \pounds
+ \item The Ansi/VT52 bit is for VT100 compatibility, as it reacts to \texttt{ESC[?2l} (start VT52 mode) and \texttt{ESC<} (return to ANSI mode, 
+	ie. ANSI/VT100 personality). Changing the personality to VT52 disables this bit, all other wil enable it.
  \item The bits for \textbf{bold} text are applied to text with the attribute \texttt{ESC[1m}.
- \item \textit{Home on Erase} makes the cursor go home (\texttt{ESC [H}) on a clear screen request (\texttt{ESC[2J}), just as MS-DOS \texttt{ANSI.SYS} works.
+ \item \textit{ANSI.SYS Compliance} makes the cursor go home (\texttt{ESC[H}) on a clear screen request (\texttt{ESC[2J}),
+	and makes some of the lower ASCII characters (between 0x00-0x1F) visible.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \subsection{Set-Up C}
 
 This screen is a VT132 enhancement over the VT100 functionality. \\
@@ -95,16 +117,21 @@ You can change the following settings:
 \LKey{8}	& Set default background color \\
 \hline
 \end{tabular}
+\vspace{1em}
 
 \textbf{Please note:}
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item Codepage 437 is not available in 132 column mode.
- \item When switching to 30 line mode, the modem part of VT132 is not available due to memory constraints.
+ \item When switching to 30 line mode, WiFi cannot be started in the modem part due to memory constraints. Also, if WiFi is already started,
+		30 line mode is not available (the option toggles between 24 and 25 lines then).
  \item To set the colors, move the cursor above the desired color on the bottom left of the screen.
- \item The current default foreground/background color is displayed by the word \texttt{Default} on the last line of the screen.
+ \item The current default foreground/background color is displayed on the last line of the screen by the word \texttt{Default}.
  \item The current screen size is displayed on the last line of the screen.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \subsection{Set-Up D}
 
 This screen is a VT132 enhancement over the VT100 functionality.
@@ -120,9 +147,10 @@ This screen is a VT132 enhancement over the VT100 functionality.
 \LKeyDown	& \\
 \hline
 \end{tabular}
+\vspace{1em}
 
 \textbf{Please note:}
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item To change the keyboard layout, move the cursor above the desired label and press \LKey{6}.
  \item When enabling NRCS, certain characters in the lower 127 characters are replaced with country-specific characters according to the
 		selected keyboard layout.

@@ -38,35 +38,37 @@ Use these keys to navigate inside this menu:
 \hline
 \end{tabular}
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item Selecting an action (ie. not a menu or checkbox/radio button) will execute this action and close the menu.
  \item You can press the \underline{underlined} key to select an option.
 \end{itemize}
 
-The following menu options are available:
+The following \textbf{menu options} are available:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=1em]
  \item Actions:
- \begin{itemize}
+ \begin{itemize}[noitemsep]
   \item Clear display
   \item Soft reset
-  \item Reset terminal: The same as \texttt{0} in Set-Up menus
+  \item Reset terminal: The same as \texttt{0} in Set-Up menus, resets the terminal to a defined state.
   \item Reboot: Reboots the microcontroller of the VT132
-  \item Clean NVR: ``factory reset'' the VT132 by deleting all terminal and modem settings
+  \item Clean NVR: \textit{factory reset} the VT132 by deleting all terminal and modem settings
  \end{itemize}
  \item Terminal Type:
- \begin{itemize}
+ \begin{itemize}[noitemsep]
   \item Emulation Mode: change personality
-  \item 7-bit NRCS characters: enable/disable NRCS mode
+  \item 7-bit NRCS characters: enable/disable NRCS\footnote{National Replacement Character Set: When enabled, some characters are replaced with language specific 
+	characters, eg. Umlauts in German} mode
  \end{itemize}
  \item ASCII emulation:
- \begin{itemize}
-  \item Select a pre-defined emulation ``profile''
+ \begin{itemize}[noitemsep]
+  \item Select a pre-defined emulation \textit{profile}
   \item White/Green/Amber/Blue screen all sets: DEC Codepage, Bold = Bright + Thick, ANSI color palette (except Amber: VGA palette), 80x24 screen
   \item Ansi.sys sets: Codepage 437, Home on Clear, VGA color palette, 80x25 screen
  \end{itemize}
+ \item Keyboard: Select the keyboard layout (US/UK/German/Italian)
  \item Modem: Enable modem locally
- \begin{itemize}
+ \begin{itemize}[noitemsep]
   \item When enabling this setting, the modem part cannot be accessed via the serial connection
   \item Instead, when switching from ONLINE to LOCAL mode, you can talk directly to the modem (bypassing the connected computer)
  \end{itemize}
