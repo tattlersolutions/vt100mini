@@ -194,10 +194,10 @@ The VT132 supports the following Telnet options:
 	\item TERMINAL-TYPE
 \end{itemize}
 
-Each Telnet Option is negotiated in via a request/response exchange described as \textit{Do/Don't} (request) and \textit{Will/Won't} (response).
+Each Telnet Option is negotiated via a request/response exchange described as \textit{Do/Don't} (request) and \textit{Will/Won't} (response).
 Trying to understand how these work for each Option usually requires reading the RFC and extreme patience and experimentation.
 
-Usually you either want an Option completely \textbf{On} (Do/Will) or \textbf{Off} (Don't / Won't).
+Usually you either want an Option completely \textbf{On} (Do/Will) or \textbf{Off} (Don't/Won't).
 
 Setting the supported Options and their default values are defined via specific S Registers \vref{sregister}.
 
@@ -207,7 +207,7 @@ In summary the defaults are:
 \hline
 \textbf{Option}	& \textbf{Default}	& \textbf{Description} \\
 \hline
-SGA				& Do/Will		& required for the NVT to work character by character and not in linemode \\
+SGA				& Do/Will		& Required for the NVT to work character by character and not in linemode \\
 ECHO			& Do/Will		& tba \\
 BIN				& Don't/Won't	& To operate as an NVT, binary mode is not required. File transfer protocols like KERMIT and XMODEM do their own binary encoding \\
 NAWS			& Do/Will		& The remote host can learn your terminal windows size in characters, the default is 80 x 24 set in S20 and S21 respectively \\

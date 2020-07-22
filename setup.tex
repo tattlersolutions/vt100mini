@@ -90,7 +90,7 @@ Set NumLock on Reset	& Enable NumLock on bootup \\
  \item Use keys \LKey{7} and \LKey{8} to set the baudrate used on the terminal serial port, it is shown in the lower right.
  \item US/UK switch will replace \# with \pounds
  \item The Ansi/VT52 bit is for VT100 compatibility, as it reacts to \texttt{ESC[?2l} (start VT52 mode) and \texttt{ESC<} (return to ANSI mode, 
-	ie. ANSI/VT100 personality). Changing the personality to VT52 disables this bit, all other wil enable it.
+	ie. ANSI/VT100 personality). Changing the personality to VT52 disables this bit, all other will enable it.
  \item The bits for \textbf{bold} text are applied to text with the attribute \texttt{ESC[1m}.
  \item \textit{ANSI.SYS Compliance} makes the cursor go home (\texttt{ESC[H}) on a clear screen request (\texttt{ESC[2J}),
 	and makes some of the lower ASCII characters (between 0x00-0x1F) visible.
@@ -122,7 +122,7 @@ You can change the following settings:
 \textbf{Please note:}
 \begin{itemize}[leftmargin=1em]
  \item Codepage 437 is not available in 132 column mode.
- \item When switching to 30 line mode, WiFi cannot be started in the modem part due to memory constraints. Also, if WiFi is already started,
+ \item When switching to 30 line mode, WiFi cannot be started due to memory constraints. Also, if WiFi is already started,
 		30 line mode is not available (the option toggles between 24 and 25 lines then).
  \item To set the colors, move the cursor above the desired color on the bottom left of the screen.
  \item The current default foreground/background color is displayed on the last line of the screen by the word \texttt{Default}.

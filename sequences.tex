@@ -5,7 +5,7 @@ The following Escape-Sequences are supported by the VT132 Terminal.
 The VT132 in VT100 mode supports sequences from the real DEC VT100, but also some sequences from later models like
 VT102, VT220, VT510 or VT520.
 
-Also, sequences from VT52 are supported by a VT100 terminal, these sequences are shown at the end.
+Also, sequences from VT52 are available in VT52 mode of the VT100 personality (and using the VT52 personality); these are shown at the end.
 
 Furthermore, some sequences that are used by ANSI.SYS (from DOS) are available.
 
@@ -188,12 +188,12 @@ ESC \# 8	& Screen Alignment Display (fill screen with \textit{E}s) \\
 ESC ( A				& G0 - Unitied Kingdom Set \\
 ESC ( B				& G0 - ASCII Set \\
 ESC ( 0				& G0 - Special Grapahics \\
-ESC ( 1				& G0 - Alt Standrad Character Set \\
+ESC ( 1				& G0 - Alt Standard Character Set \\
 ESC ( 2				& G0 - Alt Special Graphics \\
 ESC ) A				& G1 - Unitied Kingdom Set \\
 ESC ) B				& G1 - ASCII Set \\
 ESC ) 0				& G1 - Special Grapahics \\
-ESC ) 1				& G1 - Alt Standrad Character Set \\
+ESC ) 1				& G1 - Alt Standard Character Set \\
 ESC ) 2				& G1 - Alt Special Graphics \\
 ESC * \textit{n}	& Select Character Set G2 (\textit{n} = A,B,0,1,2) \\
 ESC + \textit{n}	& Select Character Set G3 (\textit{n} = A,B,0,1,2) \\
