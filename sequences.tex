@@ -1,0 +1,263 @@
+\chapter{Escape-Sequences}
+
+The following Escape-Sequences are supported by the VT132 Terminal.
+
+The VT132 in VT100 mode supports sequences from the real DEC VT100, but also some sequences from later models like
+VT102, VT220, VT510 or VT520.
+
+Also, sequences from VT52 are supported by a VT100 terminal, these sequences are shown at the end.
+
+Furthermore, some sequences that are used by ANSI.SYS (from DOS) are available.
+
+Sequences from other personalities are not shown in this Guide.
+
+\newpage
+\section{VT100(+) sequences}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Cursor Movement:} \\
+\hline
+ESC [ \textit{row} ; \textit{column} H		& Move cursor to position \\
+ESC [ \textit{row} ; \textit{column} f		& Move cursor to position \\
+ESC [ \textit{n} D	& Cursor Backwards \\
+ESC [ \textit{n} B	& Cursor Down \\
+ESC [ \textit{n} C	& Cursor Forward \\
+ESC [ \textit{n} A	& Cursor Up \\
+ESC [ \textit{n} d	& Move cursor to the indicated row \\
+ESC [ \textit{n} G	& Move cursor to the indicated column \\
+ESC 7				& Save Cursor position and attributes \\
+ESC 8				& Restore Cursor position attributes \\
+ESC D				& Index (move cursor down or scroll) \\
+ESC E				& Move cursor to start of next line \\
+ESC M				& Reverse Index \\
+\hline
+\multicolumn{2}{ l }{Text insertion / deletion:} \\
+\hline
+ESC [ J				& Erase screen from cursor down \\
+ESC [ 0 J			& Erase screen from cursor down \\
+ESC [ 1 J			& Erase screen from cursor up \\
+ESC [ 2 J			& Erase entire screen \\
+ESC [ J				& Erase line from cursor right \\
+ESC [ 0 J			& Erase line from cursor right \\
+ESC [ 1 J			& Erase line from cursor left \\
+ESC [ 2 J			& Erase entire line \\
+ESC [ \textit{n} P	& Delete \textit{n} Characters on Current Line \\
+ESC [ \textit{n} X	& Erase \textit{n} Characters on Current Line \\
+ESC [ \textit{n} @	& Insert \textit{n} Characters (Spaces) \\
+\hline
+ESC [ \textit{n} L	& Insert \textit{n} Lines \\
+ESC [ \textit{n} M	& Delete \textit{n} Lines \\
+\hline
+\end{tabular}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}		& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Scrolling:} \\
+\hline
+ESC [ \textit{n}; \textit{n} r	& Set Top and Bottom line of scroll region \\
+ESC [ \textit{n} S				& Scroll Up \textit{n} Lines \\
+ESC [ \textit{n} T				& Scroll Down \textit{n} Lines \\
+\hline
+\multicolumn{2}{ l }{Tab stops:} \\
+\hline
+ESC H		& Set tab stop at cursor \\
+ESC [ g		& Clear tab stop at cursor \\
+ESC [ 0 g	& Clear tab stop at cursor \\
+ESC [ 3 g	& Clear all tab stops \\
+\hline
+\multicolumn{2}{ l }{Text Attributes:} \\
+\hline
+ESC \# 3	& Double Height Line - Top Half \\
+ESC \# 4	& Double Height Line -- Bottom Half \\
+ESC \# 5	& Single Width / Single Height Line \\
+ESC \# 6	& Double Width / Single Height Line \\
+\hline
+ESC [ 0 m	& Attributes Off \\
+ESC [ 1 m	& Bold or Increased Intensity \\
+ESC [ 2 m	& Dim (Decreased Intensity) \\
+ESC [ 22 m	& Disable Bold and Dim \\
+ESC [ 3 m	& Italic \\
+ESC [ 23 m	& Disable Italic \\
+ESC [ 4 m	& Underscore \\
+ESC [ 24 m	& Disable Underline \\
+ESC [ 5 m	& Blink \\
+ESC [ 25 m	& Disable Blink \\
+ESC [ 7 m	& Inverse \\
+ESC [ 27 m	& Disable Inverse \\
+ESC [ 8 m	& Blank (Invisible) \\
+ESC [ 28 m	& Disable Blank \\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}		& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Color:} \\
+\hline
+ESC [ \textit{n} m		& Set Foreground Color (\textit{n} = 30\dots37) \\
+ESC [ 39 m				& Set Current Foreground Color as Default \\
+ESC [ \textit{n} m		& Set Background Color (\textit{n} = 40\dots47) \\
+ESC [ 49 m				& Set Background Color as Default \\
+ESC [ \textit{n} m		& Set Bright Foreground Color (\textit{n} = 90\dots97) \\
+ESC [ \textit{n} m		& Set Bright Background Color (\textit{n} = 100\dots107) \\
+\hline
+\multicolumn{2}{ l }{Color numbers:} \\
+\hline
+0						& Black \\
+1						& Red \\
+2						& Green \\
+3						& Yellow (Brown) \\
+4						& Blue \\
+5						& Magenta \\
+6						& Cyan \\
+7						& White \\
+\hline
+\multicolumn{2}{ l }{Selective Erase:} \\
+\hline
+ESC [ 1 " q				& Protect from Selective Erase \\
+ESC [ 0 " q				& Unprotect from Selective Erase \\
+ESC [ 2 " q				& Unprotect Selective Erase \\
+ESC [ ? \textit{s} J	& Selective Erase on Screen (like ESC[J) \\
+						& \textit{s}: 0: to end of screen, 1: to top of screen, \\
+						& 2: whole screen \\
+ESC [ ? \textit{s} K	& Selective Erase in Line (like ESC[K above) \\
+						& \textit{s}: 0: to left, 1: to right, 2: whole line \\
+\hline
+\end{tabular}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Switches, \textit{x} = h / l to enable / disable:} \\
+\hline
+ESC [ 4 \textit{x}		& Insert Mode \\
+ESC [ 20 \textit{x}		& Line Feed/New Line Mode \\
+ESC [ ? 1 \textit{x}	& Cursor Keys Mode \\
+ESC [ ? 2 l				& Start VT52 mode (ESC < returns) \\
+ESC [ ? 3 \textit{x}	& Column Mode \\
+ESC [ ? 4 \textit{x}	& Scrolling Mode \\
+ESC [ ? 5 \textit{x}	& Screen Mode \\
+ESC [ ? 6 \textit{x}	& Origin Mode \\
+ESC [ ? 7 \textit{x}	& Autowrap Mode \\
+ESC [ ? 8 \textit{x}	& Auto Repeat Mode \\
+ESC [ ? 9 \textit{x}	& Interlace Mode \\
+ESC [ ? 12 \textit{x}	& Set Blinking Cursor \\
+ESC [ ? 25 \textit{x}	& Set Cursor Visible \\
+ESC [ ? 40 \textit{x}	& Allow switching 80/132 Mode \\
+ESC [ ? 42 \textit{x}	& NRCS Mode \\
+ESC [ ? 45 \textit{x}	& Reverse-wraparound Mode \\
+ESC [ ? 47 \textit{x}	& Use Alternate Screen Buffer \\
+ESC [ ? 67 \textit{x}	& Backarrow Key Mode \\
+ESC [ ? 1047 \textit{x}	& Use Alternate Screen Buffer \\
+ESC [ ? 1048 \textit{x}	& Save/Restore Cursor \\
+ESC [ ? 1049 \textit{x}	& S/R Cursor and Use Alternate Screen \\
+\hline
+ESC =	& Keypad Application Mode \\
+ESC >	& Keypad Numeric Mode \\
+\hline
+\end{tabular}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Set Cursor Style ( \textvisiblespace{} = Space, 0x32):} \\
+\hline
+ESC [ 0 \textvisiblespace{} q	& Blinking Block \\
+ESC [ 1 \textvisiblespace{} q	& Blinking Block (default) \\
+ESC [ 2 \textvisiblespace{} q	& Steady Block \\
+ESC [ 3 \textvisiblespace{} q	& Blinking Underline \\
+ESC [ 4 \textvisiblespace{} q	& Steady Underline \\
+ESC [ 5 \textvisiblespace{} q	& Blinking Bar \\
+ESC [ 6 \textvisiblespace{} q	& Steady Bar \\
+\hline
+ESC c		& Reset (like Power Cycle) \\
+ESC [ !		& Soft Terminal Reset \\
+ESC \# 8	& Screen Alignment Display (fill screen with \textit{E}s) \\
+\hline
+\multicolumn{2}{ l }{Select Character Set:} \\
+\hline
+ESC ( A				& G0 - Unitied Kingdom Set \\
+ESC ( B				& G0 - ASCII Set \\
+ESC ( 0				& G0 - Special Grapahics \\
+ESC ( 1				& G0 - Alt Standrad Character Set \\
+ESC ( 2				& G0 - Alt Special Graphics \\
+ESC ) A				& G1 - Unitied Kingdom Set \\
+ESC ) B				& G1 - ASCII Set \\
+ESC ) 0				& G1 - Special Grapahics \\
+ESC ) 1				& G1 - Alt Standrad Character Set \\
+ESC ) 2				& G1 - Alt Special Graphics \\
+ESC * \textit{n}	& Select Character Set G2 (\textit{n} = A,B,0,1,2) \\
+ESC + \textit{n}	& Select Character Set G3 (\textit{n} = A,B,0,1,2) \\
+\hline
+\end{tabular}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+\multicolumn{2}{ l }{Terminal Query Sequences:} \\
+\hline
+ESC [ 6 n	& Request Cursor Position \\
+ESC [ \textit{row} ; \textit{column} R & \textit{To Host:} Cursor Position Report \\
+\hline
+ESC [ 5 n	& Request Operating Status \\
+ESC [ 0 n	& \textit{To Host:} Terminal in good operating condition \\
+ESC [ 3 n	& \textit{To Host:} Terminal has a malfunction \\
+\hline
+ESC Z		& Identify Terminal \\
+ESC [ c		& Query Device Atttibutes \\
+ESC [ 0 c	& Query Device Atttibutes \\
+ESC [ ? 1 ; \textit{n} c	& \textit{To Host:} Device Attributes \\
+	& VT132 will reply: ESC [ ? 64 ; 1 ; 6 ; 22 c \\
+	& \textit{64 = class 4 device, 1 = 132 columns,} \\
+	& \textit{6 = Selective Erase, 22 = ?} \\ % TODO
+\hline
+\end{tabular}
+
+\newpage
+\section{VT52 sequences}
+
+These VT52 sequences are available in VT100 mode:
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+ESC A	& Cursor Up \\
+ESC B	& Cursor Down \\
+ESC C	& Cursor Right \\
+ESC D	& Cursor Left \\
+ESC F	& Enter Graphics Mode \\
+ESC G	& Exit Graphics Mode \\
+ESC H	& Cursor to Home \\
+ESC I	& Reverse Line Feed \\
+ESC J	& Erase to End of Screen \\
+ESC K	& Erase to End of Line \\
+ESC Y \textit{row column}	& Move cursor to position \\
+ESC Z	& Identify \\
+ESC / Z	& \textit{To host:} response \\
+ESC =	& Enter Alternate Keypad Mode \\
+ESC >	& Exit Alternate Keypad Mode \\
+ESC <	& Enter ANSI Mode \\
+\hline
+\end{tabular}
+
+\section{ANSI.SYS sequences}
+
+\begin{tabular}{p{9em} | p{0.66\textwidth}}
+\hline
+\textbf{Sequence}	& \textbf{Function} \\
+\hline
+ESC [ s	& save cursor state (position and attributes) \\
+ESC [ u	& restore cursor state (position and attributes) \\
+\hline
+\end{tabular}
