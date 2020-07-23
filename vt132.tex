@@ -1,3 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% VT132 Quick Reference Guide
+% by Anna Christina Naß <acn@acn.wtf>
+% licensed under GNU Free Documentation License
+% (GNU FDL), see fdl-1.3.txt
+%
+% VT132 by TheHighNibble
+% http://thehighnibble.com/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[
 	a5paper,
 	headsepline,
@@ -23,34 +33,30 @@
 \publishers{\includegraphics[scale=0.7]{thn_logo}}
 
 % on the back of the title page:
-\uppertitleback{Quick Reference Guide by by Anna Christina Naß}
-\lowertitleback{Created using \LaTeX{} using Linux Libertine font package}
+\uppertitleback{
+	Quick Reference Guide by by Anna Christina Naß \\
+	\\
+	Licensed under GNU Free Documentation License (FDL) 1.3\\
+	\footnotesize{\url{https://www.gnu.org/licenses/fdl-1.3.html}}
+	}
+\lowertitleback{Created with \LaTeX{} using Linux Libertine font package}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Let's get started
 
 \begin{document}
 
-\maketitle
-
-\tableofcontents
-
-\include{introduction}
-
-\include{terminal}
-
-\include{setup}
-
-\include{modem}
-
-\appendix
-
-\include{hardware}
-
-\include{sequences}
+	\maketitle
+	\tableofcontents
+	\include{introduction}
+	\include{terminal}
+	\include{setup}
+	\include{modem}
+	\appendix
+	\include{hardware}
+	\include{sequences}
 
 \end{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The End.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
