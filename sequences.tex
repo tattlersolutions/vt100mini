@@ -40,10 +40,10 @@ ESC [ J				& Erase screen from cursor down \\
 ESC [ 0 J			& Erase screen from cursor down \\
 ESC [ 1 J			& Erase screen from cursor up \\
 ESC [ 2 J			& Erase entire screen \\
-ESC [ J				& Erase line from cursor right \\
-ESC [ 0 J			& Erase line from cursor right \\
-ESC [ 1 J			& Erase line from cursor left \\
-ESC [ 2 J			& Erase entire line \\
+ESC [ K				& Erase line from cursor right \\
+ESC [ 0 K			& Erase line from cursor right \\
+ESC [ 1 K			& Erase line from cursor left \\
+ESC [ 2 K			& Erase entire line \\
 ESC [ \textit{n} P	& Delete \textit{n} Characters on Current Line \\
 ESC [ \textit{n} X	& Erase \textit{n} Characters on Current Line \\
 ESC [ \textit{n} @	& Insert \textit{n} Characters (Spaces) \\
@@ -139,16 +139,16 @@ ESC [ ? \textit{s} K	& Selective Erase in Line (like ESC[K above) \\
 \multicolumn{2}{ l }{Switches, \textit{x} = h / l to enable / disable:} \\
 \hline
 ESC [ 4 \textit{x}		& Insert Mode \\
-ESC [ 20 \textit{x}		& Line Feed/New Line Mode \\
+ESC [ 20 \textit{x}		& $\dagger$ Line Feed/New Line Mode \\
 ESC [ ? 1 \textit{x}	& Cursor Keys Mode \\
-ESC [ ? 2 l				& Start VT52 mode (ESC < returns) \\
-ESC [ ? 3 \textit{x}	& Column Mode \\
-ESC [ ? 4 \textit{x}	& Scrolling Mode \\
-ESC [ ? 5 \textit{x}	& Screen Mode \\
+ESC [ ? 2 l				& $\dagger$ Start VT52 mode (ESC < returns) \\
+ESC [ ? 3 \textit{x}	& $\ddagger$ 132/80 Column Mode \\
+ESC [ ? 4 \textit{x}	& $\dagger$ Scrolling Mode \\
+ESC [ ? 5 \textit{x}	& $\dagger$ Screen Mode \\
 ESC [ ? 6 \textit{x}	& Origin Mode \\
-ESC [ ? 7 \textit{x}	& Autowrap Mode \\
-ESC [ ? 8 \textit{x}	& Auto Repeat Mode \\
-ESC [ ? 9 \textit{x}	& Interlace Mode \\
+ESC [ ? 7 \textit{x}	& $\dagger$ Autowrap Mode \\
+ESC [ ? 8 \textit{x}	& $\dagger$ Auto Repeat Mode \\
+ESC [ ? 9 \textit{x}	& $\dagger$ Interlace Mode \\
 ESC [ ? 12 \textit{x}	& Set Blinking Cursor \\
 ESC [ ? 25 \textit{x}	& Set Cursor Visible \\
 ESC [ ? 40 \textit{x}	& Allow switching 80/132 Mode \\
@@ -164,6 +164,13 @@ ESC =	& Keypad Application Mode \\
 ESC >	& Keypad Numeric Mode \\
 \hline
 \end{tabular}
+
+\par\noindent\rule{2in}{0.4pt}\\
+\footnotesize{
+	$\ddagger$ Controls an option on Set-Up A, see section \vref{setupA} \\
+	$\dagger$ Controls an option on Set-Up B, see section \vref{setupB}
+}
+
 
 \begin{tabular}{p{9em} | p{0.66\textwidth}}
 \hline
@@ -182,6 +189,9 @@ ESC [ 6 \textvisiblespace{} q	& Steady Bar \\
 ESC c		& Reset (like Power Cycle) \\
 ESC [ !		& Soft Terminal Reset \\
 ESC \# 8	& Screen Alignment Display (fill screen with \textit{E}s) \\
+ESC \textvisiblespace{} F	& Send C1 Control Character as 7-Bit Escaped Characters \\
+ESC \textvisiblespace{} G	& Send C1 Control Character as 8-Bit Characters \\
+ESC [ \textit{x} " p	& Select Conformance Level\footnotemark \\
 \hline
 \multicolumn{2}{ l }{Select Character Set:} \\
 \hline
@@ -199,6 +209,7 @@ ESC * \textit{n}	& Select Character Set G2 (\textit{n} = A,B,0,1,2) \\
 ESC + \textit{n}	& Select Character Set G3 (\textit{n} = A,B,0,1,2) \\
 \hline
 \end{tabular}
+\footnotetext{For details, see VT510 manual: \scriptsize{\url{https://www.vt100.net/docs/vt510-rm/DECSCL.html}}}
 
 \begin{tabular}{p{9em} | p{0.66\textwidth}}
 \hline
