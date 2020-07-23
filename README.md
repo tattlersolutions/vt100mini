@@ -3,15 +3,19 @@
 This document aims to provide a Quick Reference Guide for the VT132 terminal/modem module for RC2014-style
 computers.
 
-This is a LaTeX document, so a working LaTeX installation is needed to compile it.
+If you just want to download this guide, just use: [vt132.pdf](vt132.pdf)
 
-A compiled version is available as ```vt132.pdf```.
+This is the ready-made PDF file.
 
-To edit the document in the LaTeX editor Kile, a kile project file (```vt132.kilepr```) is provided.
+This Quick Reference Guide is licensed under the [https://www.gnu.org/licenses/fdl-1.3.html](GNU Free Documentation License), see [fdl-1.3.txt](fdl-1.3.txt).
 
-To compile the file, just run ```xelatex vt132.tex``` (2 times to get the references right) and you get the ```.pdf``` file (or call ```make.sh```).
+## Compiling the LaTeX document
 
-The script ```clean.sh``` can be used to remove all intermediate files.
+This LaTeX document is compiled using xeLaTeX. The following Debian/Ubuntu packages are needed to compile it:
 
-The Debian/Ubuntu package ```texlive-fonts-extra``` (besides ```texlive``` as the base TeXlive package) is needed to provide the font "Linux Libertine".
+* texlive
+* texlive-xetex
+* texlive-fonts-extra (for the *Linux Libertine* font package)
+
+To compile, just run ```make.sh```, to clean up afterwards use ```clean.sh```.
 
