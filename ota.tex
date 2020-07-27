@@ -1,0 +1,49 @@
+\chapter{Firmware Updates}
+
+\section{Over-the-Air Updates}
+
+To update the firmware of the VT132 to the latest version, a OTA update function is implemented via modem
+AT commands (see also in section \vref{modemota}).
+
+You can use a terminal program like QTERM or KERMIT or use the LOCAL mode and talk directly to the modem, see
+section \vref{quicksettings} for the \textit{Quick Settings Menu}. 
+
+To get the latest official version, which is hosted on GitHub, use the following AT commands and steps:
+
+\begin{itemize}[leftmargin=1em]
+ \item \texttt{AT+W+} or \texttt{AT+W=}\textit{ssid}\texttt{,}\textit{pwd} to join your Wi-Fi network
+ \item \texttt{AT+U\$} to see what firmware version you are currently running \textit{(optional)}
+ \item \texttt{AT+U?} to query GitHub for the latest firmware image (essential!)
+ \item The answer shows the version number and an indicator to tell if the version found online is
+	[OLDER], [SAME] or [NEWER] than the currently installed version
+ \item \texttt{AT+U\textasciicircum} to perform the upgrade to the newer version
+ \item \textit{Alternatively:} \texttt{AT+U!} to force the upgrade, if the version found online is
+	older or the same
+ \item During the process of downloading and installing, dots will be output to indicate progress until OK shows
+	that it is finished
+ \item Use \texttt{AT+U\$} to see what version will be run after the reset \textit{(optional)}
+ \item Perform a hardware reset or power cycle to start the new version
+\end{itemize}
+
+\textbf{Please note:}
+
+Once you have entered the Query OTA Update command \texttt{AT+U?} the VT132 should not be expected to operate "normally"
+until you perform a hardware reset or reboot of the VT132.\\
+This is because the Query OTA Update command opens and creates a number of files and large data structures in memory
+that may conflict with normal operation and these can only be closed and released by a hardware reset or reboot.
+
+\textbf{Security notes:}
+
+\begin{itemize}[leftmargin=1em]
+ \item OTA Updates from GitHub are performed using the HTTPS protocol.
+ \item Security certificates (Root CA) for GitHub and Amazon S3 (where GitHub stores release binary files) are embedded in the firmware.
+ \item HTTPS requests to servers that use any other Root CA certificate will fail to authenticate.
+ \item The VT132 makes this request as an https client and does not implement an http or https server.
+\end{itemize}
+
+% TODO: need official documentation on this part
+%\section{Updates from local server}
+%
+%To use a local web server to store firmware updates, you can use \texttt{AT+U=}\textit{url} to specify
+%another URL which the VT132 will query for new firmware releases.
+
