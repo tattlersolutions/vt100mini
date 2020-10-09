@@ -14,8 +14,26 @@ Alternative personalities like ADM-3A or VT-52 are also available.
 \LKeyAlt + \LKeyEsc			& Open Quick Settings Menu (left \LKeyAlt only)\\
 \LKeyCtrlX{J}				& Send \texttt{LINEFEED} key \\
 \biolinum{ScrollLock}		& \texttt{NO} \texttt{SCROLL} function, like \LKeyCtrlX{S} / \LKeyCtrlX{Q} \\
+\LKeyAlt$^\dagger$ + \LKeyPageUp	& Open Scroll History (see below) \\
+\hline
+\multicolumn{2}{ l }{In Scroll History:} \\
+\hline
+\LKeyPageUp / \LKeyPageDown	& Scroll back/forward one screen \\
+\LKeyUp / \LKeyDown			& Scroll back/forward one line \\
+\LKeyEsc					& Quit Scroll History and return to current screen \\
+\LKeyShiftX{C}				& Clear Scroll History and quit to current screen \\
 \hline
 \end{tabular}
+
+When scrolling past the bottom of the Scroll History, the current screen will be shown again.
+
+Any change of screen parameters (80/132 columns, 24/25/30 lines per screen, DEC/CP437 font) will clear the Scroll History.
+
+\vspace*{\fill}
+\noindent\rule{2in}{0.4pt}\\
+{\footnotesize
+$^\dagger$: left \LKeyAlt key
+}
 
 \section{The Quick Settings Menu}
 \label{quicksettings}
@@ -54,6 +72,13 @@ The following \textbf{menu options} are available:
   \item Reboot: Reboots the microcontroller of the VT132
   \item Clean NVR: \textit{factory reset} the VT132 by deleting all terminal and modem settings
  \end{itemize}
+ \item Display:
+ \begin{itemize}[noitemsep]
+  \item Lines of history: Enables the Scroll History of 100, 1000 or 5000 (= default) lines.
+  \item CRT saver: Enables a screensaver after 10 seconds or 1, 5, 10, 20 or 30 minutes of inactivity.
+  \item Clear history: clear the Scroll History.
+ \end{itemize}
+\newpage
  \item Terminal Type:
  \begin{itemize}[noitemsep]
   \item Emulation Mode: change personality
@@ -73,5 +98,7 @@ The following \textbf{menu options} are available:
   \item Instead, when switching from ONLINE to LOCAL mode, you can talk directly to the modem (bypassing the connected computer)
  \end{itemize}
  \item On-Line: switch between ONLINE and LOCAL mode (for using the modem, see above)
+ \item Save Settings: Write settings to NVRAM (same function as in the Set-Up Screens)
+ \item Restore Settings: Load settings from NVRAM
 \end{itemize}
 

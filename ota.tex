@@ -34,16 +34,30 @@ that may conflict with normal operation and these can only be closed and release
 
 \textbf{Security notes:}
 
-\begin{itemize}[leftmargin=1em]
+\begin{itemize}[leftmargin=1em,noitemsep]
  \item OTA Updates from GitHub are performed using the HTTPS protocol.
  \item Security certificates (Root CA) for GitHub and Amazon S3 (where GitHub stores release binary files) are embedded in the firmware.
  \item HTTPS requests to servers that use any other Root CA certificate will fail to authenticate.
  \item The VT132 makes this request as an https client and does not implement an http or https server.
 \end{itemize}
 
-% TODO: need official documentation on this part
-%\section{Updates from local server}
-%
-%To use a local web server to store firmware updates, you can use \texttt{AT+U=}\textit{url} to specify
-%another URL which the VT132 will query for new firmware releases.
+\section{Updates from local server}
 
+To use a local web server for updating the firmware, place the firmware file (eg. \texttt{VT132.bin}) on a webserver and
+user \texttt{AT+U=}\textit{url} to specify the URL.
+
+For example, the firmware file is accessible at\\
+\texttt{http://server/VT132.bin}\\
+use these commands:
+
+\begin{itemize}[leftmargin=1em,noitemsep]
+ \item \texttt{AT+U=http://server/VT312.bin} to change the OTA URL
+ \item \texttt{AT+U?} to query the version of the local firmware file
+ \item \texttt{AT+U\textasciicircum} or \texttt{AT+U!} to update to this file
+\end{itemize}
+
+The changed URL will be reset to the default (GitHub) URL on the next reboot of the VT132.
+
+\textbf{Please note:}
+
+Since the VT132 does only include certificates for GitHub and Amazon S3, it cannot check certificates of HTTPS websites issued by other CAs.

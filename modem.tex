@@ -183,6 +183,17 @@ The following table shows the responses to the \textbf{Query WiFi status} comman
 \newpage
 \section{Telnet}
 
+\subsection{Enabling Telnet Protocol}
+
+Telnet protocol is \textbf{not} enabled by default. To enable it, set the S Register S15 to 1 manually:
+
+\begin{itemize}[leftmargin=1em]
+	\item Enable Telnet using: \texttt{ATS15=1}
+	\item Disable Telnet using: \texttt{ATS15=0}
+\end{itemize}
+
+The Telnet protocol is applied to both \textbf{outgoing} connections 'Dialed' with ATD and \textbf{incoming} connections 'Answered' with \texttt{ATA} or Auto-answer.
+
 \subsection{Telnet options}
 
 The VT132 supports the following Telnet options:
@@ -202,6 +213,7 @@ Usually you either want an Option completely \textbf{On} (Do/Will) or \textbf{Of
 
 Setting the supported Options and their default values are defined via specific S Registers \vref{sregister}.
 
+\newpage
 In summary the defaults are:
 
 \begin{tabular}{p{6em} | p{5.5em} | p{0.55\textwidth}}
@@ -221,17 +233,6 @@ The \texttt{TERMINAL-TYPE} must be known by the remote system to be recognised.
 
 When connecting to \texttt{telnetd} on MacOS I use \texttt{vt100+} from the \texttt{terminfo} database which provides support for color over and above the standard
 \texttt{vt100} terminal type, making text applications like \texttt{htop} work as expected and in color.
-
-\subsection{Enabling Telnet Protocol}
-
-Telnet protocol is \textbf{not} enabled by default. To enable it, set the S Register S15 to 1 manually:
-
-\begin{itemize}[leftmargin=1em]
-	\item Enable Telnet using: \texttt{ATS15=1}
-	\item Disable Telnet using: \texttt{ATS15=0}
-\end{itemize}
-
-The Telnet protocol is applied to both \textbf{outgoing} connections 'Dialed' with ATD and \textbf{incoming} connections 'Answered' with \texttt{ATA} or Auto-answer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
